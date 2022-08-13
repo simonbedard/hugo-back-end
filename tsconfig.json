@@ -1,0 +1,16 @@
+{
+   "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "pretty": true,
+      "target": "es6",
+      "outDir": "./api/dist",
+      "baseUrl": "./api/lib"
+   },
+   "include": [
+      "api/lib/**/*.ts"
+   ],
+   "exclude": [
+      "node_modules"
+   ]
+}
