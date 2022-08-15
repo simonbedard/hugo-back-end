@@ -1,7 +1,7 @@
 {
-  "name": "photopack",
+  "name": "hugo-api",
   "version": "1.0.0",
-  "description": "photopack",
+  "description": "hugo-backend-api",
   "main": "./api/dist/server.js",
   "scripts": {
     "test": "ts-node ./lib/server.ts",
@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "helmet": "^5.1.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.7",
     "node-cache": "^5.1.2",

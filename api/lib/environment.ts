@@ -23,12 +23,12 @@ class Environment {
         } else if (this.environment === Environments.qa_environment) {
             return 8083;
         } else {
-            return parseInt(process.env.DEFAULT_PORT) || 3000;
+            return parseInt(process.env.DEFAULT_PORT) || 3012;
         }
     }
 
     getDefaultApiPath(): string {
-        return process.env.API_PREFIX || "api/v1/";
+        return process.env.API_PREFIX || "/api/v1/";
     }
 }
 

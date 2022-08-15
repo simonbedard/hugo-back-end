@@ -1,6 +1,5 @@
 //lib/routes/test_routes.ts
 import { Application, Request, Response, Router } from 'express';
-import Notifications from "../services/notifications/notifications";
 let testRouter = Router();
 
 testRouter
@@ -9,7 +8,8 @@ testRouter
       res.status(200).json({
          message: "Get request successfull",
       });
-   })
+   });
+   /*
    // Send email test
    .get('/mail/send', (req: Request, res: Response) => {
       // Send test email notification
@@ -26,6 +26,6 @@ testRouter
    })
    .post('/', (req: Request, res: Response) => {
       res.status(200).json({ message: "Post request successfull" });
-   });
+   });*/
 
 export default testRouter;

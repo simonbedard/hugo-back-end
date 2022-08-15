@@ -1,13 +1,19 @@
 
 import { Request, Response } from 'express';
-import { ImagesProvider } from '../services/ImagesProvider/ImagesProvider';
-import { insufficientParameters, failureResponse } from "../modules/common/service"
+import { ImagesProvider } from '../modules/images/services';
+import { insufficientParameters, failureResponse, successResponse } from "../modules/common/service"
 
 export class SearchController {
+
+    // Creating new Business service class
+    private image_provider: ImagesProvider = new ImagesProvider({
+        sample: false
+    });
 
     public searchByTerms(req: Request, res: Response) {
 
         if(req.params.search && req.params.page){
+
             const Words = req.params.search;
             const Page = req.params.page || 1;
             const Query = req.query;
@@ -18,15 +24,11 @@ export class SearchController {
             if(Query.provider){
                 Providers = (<string>Query.provider).split(',')
             }
-            const ImgProvider = new ImagesProvider();
+       
             
             //ImgProvider.ExtractImagesFromSample({ providers: Providers });
-            ImgProvider.ExtractImagesFromApis({ providers: Providers, query: Words, page: Page }).then((data) => {
-                // Response 
-                res.status(200).json({
-                    message: "Get request successfull",
-                    data: data
-                });
+            this.image_provider.Extract({ providers: Providers, query: Words, page: Page }).then((data) => {
+                successResponse("Get request successfull", data, res);
             }).catch((error)=>{
                 failureResponse(error, [], res);
             });
